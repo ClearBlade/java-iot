@@ -4,6 +4,7 @@ Java library and samples for [ClearBlade Internet of Things (IoT) Core][product-
 
 - [Product Documentation][product-docs]
 - [Client Library Documentation][javasdk]
+- [Quickstart for Java][quickstart]
 
 ## Supported Java Versions
 
@@ -151,3 +152,4 @@ Run device example:
 
 [product-docs]: https://clearblade.atlassian.net/wiki/spaces/IC/overview
 [javasdk]: https://clearblade.atlassian.net/wiki/spaces/IC/pages/2231173185/Java
+[quickstart]: https://clearblade.atlassian.net/wiki/spaces/IC/pages/2352611329/Java+SDK+quick+start
