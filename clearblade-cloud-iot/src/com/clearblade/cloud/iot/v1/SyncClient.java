@@ -105,12 +105,16 @@ public class SyncClient {
 
     public String[] get(String apiName, String params, DevicesListRequest request) {
         try {
+            log.info("get: setting registry cred");
             authParams.setRegistryCredentials(request.getParent().getProject(), request.getParent().getRegistry(), request.getParent().getLocation());
         } catch (Exception e) {
+            log.info("get: error");
             throw new ApplicationException(e);
         }
         String finalURL = generateURL(authParams, apiName, params);
         String token = authParams.getUserToken();
+        log.info("get: finalURL: " + finalURL);
+        log.info("get: token: " + token);
         return get(finalURL, token);
     }
 
@@ -171,6 +175,7 @@ public class SyncClient {
      */
     public String[] get(String finalURL, String token) {
         String[] responseArray = new String[3];
+        log.info("get");
         try {
             HttpRequest request = HttpRequest.newBuilder().uri(URI.create(finalURL)).headers(Constants.HTTP_REQUEST_PROPERTY_CONTENT_TYPE_KEY, Constants.HTTP_REQUEST_PROPERTY_CONTENT_TYPE_ACCEPT_VALUE, Constants.HTTP_REQUEST_PROPERTY_TOKEN_KEY, token, Constants.HTTP_REQUEST_PROPERTY_ACCEPT_KEY, Constants.HTTP_REQUEST_PROPERTY_CONTENT_TYPE_ACCEPT_VALUE).GET().build();
 
@@ -179,6 +184,7 @@ public class SyncClient {
             responseArray[0] = String.valueOf(response.statusCode());
             responseArray[1] = "";
             responseArray[2] = response.body();
+            log.info("get: response.body(): " + response.body());
         } catch (InterruptedException e) {
             log.log(Level.SEVERE, e.getMessage());
             Thread.currentThread().interrupt();
@@ -192,12 +198,17 @@ public class SyncClient {
 
     public String[] post(String apiName, String params, String body, CreateDeviceRequest request) {
         try {
+            log.info("post: body: ");
             authParams.setRegistryCredentials(request.getParent().getProject(), request.getParent().getRegistry(), request.getParent().getLocation());
+            log.info("post: authParams received");
         } catch (Exception e) {
+            log.info("post: Error");
             throw new ApplicationException(e);
         }
         String finalURL = generateURL(authParams, apiName, params);
         String token = authParams.getUserToken();
+        log.info("post: finalURL: " + finalURL);
+        log.info("post: token: " + token);
         return post(finalURL, body, token);
     }
 
@@ -279,6 +290,7 @@ public class SyncClient {
             responseArray[0] = String.valueOf(response.statusCode());
             responseArray[1] = "";
             responseArray[2] = response.body();
+            log.info("post: response.body(): " + response.body());
         } catch (InterruptedException e) {
             log.log(Level.SEVERE, e.getMessage());
             Thread.currentThread().interrupt();

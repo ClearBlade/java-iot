@@ -88,6 +88,7 @@ public class DeviceManagerClient {
 	 * @throws ApplicationException
 	 */
 	public Device createDevice(CreateDeviceRequest request) {
+		log.info("createDevice");
 		ClearBladeDeviceManager cbManager = new ClearBladeDeviceManager();
 		return cbManager.createDevice(request);
 	}
@@ -148,6 +149,7 @@ public class DeviceManagerClient {
 	}
 
 	public DevicesListResponse listDevices(DevicesListRequest request) {
+		log.info("listDevices");
 		ClearBladeDeviceManager cbManager = new ClearBladeDeviceManager();
 		return cbManager.listDevices(request);
 	}

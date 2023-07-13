@@ -100,13 +100,19 @@ public class ClearBladeDeviceManager {
     }
 
     public Device createDevice(CreateDeviceRequest request) throws ApplicationException {
+        log.info("createDevice: parent: " + request.getParent());
         SyncClient syncClient = new SyncClient();
         String[] params = request.getParams();
         String reqParams = params[0];
         String body = params[1];
+        log.info("createDevice: params");
+        log.info("createDevice: reqParams: " + reqParams);
+        log.info("createDevice: body: " + body);
         String[] responseArray = syncClient.post(configParameters.getDevicesURLExtension(), reqParams, body, request);
         if (responseArray[0] != null) {
+            log.info("createDevice: responseArray NOT NULL");
             int responseCode = Integer.parseInt(responseArray[0]);
+            log.info("createDevice: response code: " + responseCode);
             if (responseCode == 200) {
                 Device deviceObj = Device.newBuilder().build();
                 deviceObj.loadFromString(responseArray[2]);
@@ -115,6 +121,7 @@ public class ClearBladeDeviceManager {
                 throw new ApplicationException(responseArray[2]);
             }
         } else {
+            log.info("createDevice: responseArray NULL");
             throw new ApplicationException("");
         }
     }
@@ -341,8 +348,10 @@ public class ClearBladeDeviceManager {
     }
 
     public DevicesListResponse listDevices(DevicesListRequest request) throws ApplicationException {
+        log.info("listDevices: request: " + request.getParamsForList());
         SyncClient syncClient = new SyncClient();
         String[] responseArray = syncClient.get(configParameters.getDevicesURLExtension(), request.getParamsForList(), request);
+        log.info("listDevices: responseArray: " + responseArray);
         if (responseArray[0] != null) {
             int responseCode = Integer.parseInt(responseArray[0]);
             if (responseCode == 200) {
