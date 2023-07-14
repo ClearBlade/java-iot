@@ -3,7 +3,7 @@
 
 	<groupId>io.github.clearblade</groupId>
 	<artifactId>clearblade-cloud-iot</artifactId>
-	<version>1.0.0-rc.2</version>
+	<version>1.1.0-rc.2</version>
 	<packaging>jar</packaging>
 
 	<name>Java Client Library for ClearBlade IoT Core</name>
