@@ -1,4 +1,4 @@
-# ClearBlade IoT Core Java Client
+# ClearBlade IoT Core Java client
 
 Java library and samples for [ClearBlade IoT Core][product-docs].
 
@@ -8,7 +8,7 @@ Java library and samples for [ClearBlade IoT Core][product-docs].
 
 ## Supported Java versions
 
-Java 11 or above is required for using this client. Java 17 is the best choice for new development.
+Java 11 or above is required to use this client. Java 17 is the best choice for new development.
 
 # Usage
 
@@ -16,7 +16,7 @@ You can use the Maven artifact or do a Maven local installation and setup.
 
 ## Maven artifact
 
-If you are using the Maven artifact, add the following dependency to your pom.xml file in a newly created/generated Maven app:
+If you use the Maven artifact, add the following dependency to your pom.xml file in a newly created/generated Maven app:
 
 ```xml
 <dependency>
@@ -59,13 +59,13 @@ In the [clearblade-cloud-iot](./clearblade-cloud-iot) folder, run the following 
 
 ## ClearBlade IoT Core Java samples
 
-The sample apps demonstrate registry and device creation for ClearBlade IoT Core. The [samples](./clearblade-cloud-iot/samples) folder contains all the Java samples demonstrating an overview of the ClearBlade IoT Core Platform.
+The sample apps demonstrate registry and device creation for ClearBlade IoT Core. The [samples](./clearblade-cloud-iot/samples) folder contains all the Java samples showing an overview of the ClearBlade IoT Core Platform.
 
-Before running the sample, you must configure your development environment and terminal as described in the Quickstart above or the [samples](./clearblade-cloud-iot/samples) folder.
+Before running the samples, you must configure your development environment and terminal as described in the Quickstart above or the [samples](./clearblade-cloud-iot/samples) folder.
 
-Before running the samples, you must set the `CLEARBLADE_CONFIGURATION`. Optionally, set the `CLEARBLADE_REGISTRY` and `CLEARBLADE_REGION` environment variables to avoid changing them in the sample app every time you run it.
+You must also set the `CLEARBLADE_CONFIGURATION`. Optionally, set the `CLEARBLADE_REGISTRY` and `CLEARBLADE_REGION` environment variables to avoid changing them in the sample app every time you run it.
 
-If you set the `BINARYDATA_AND_TIME_GOOGLE_FORMAT` environment variable, then it will give the binaryData object's response in binary form and time in timestamp format, which will have seconds and nanoseconds, following Google's structure. It's applicable on the get device state list and modify and device config version methods. Cast the data in the proper format.
+If you set the `BINARYDATA_AND_TIME_GOOGLE_FORMAT` environment variable, it will give the binaryData object's response in binary form and time in timestamp format, which will have seconds and nanoseconds, following Google's structure. It applies to the get device state list and modify and device config version methods. Cast the data in the proper format.
 
 ```
 	ListDeviceStatesResponse response = deviceManagerClient.listDeviceStates(request);
