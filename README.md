@@ -44,7 +44,7 @@ In the [clearblade-cloud-iot](./clearblade-cloud-iot) folder, run the following 
 3. Use the following to set your environment variables keys in your terminal or IDE environment configurations:
 
    ```
-    export CLEARBLADE_CONFIGURATION=/path/to/file.json
+    export CLEARBLADE_CONFIGURATION=/path/to/configuration_file.json
    ```
 
    Optional
