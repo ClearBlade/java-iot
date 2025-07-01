@@ -45,7 +45,7 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: Publish package
-        run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} -Dgpg.keyname=6A09E667F3BCC908 deploy -DskipTests
+        run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} -Dgpg.keyname=01893BE7159F5EBD deploy -DskipTests
         working-directory: clearblade-cloud-iot
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
