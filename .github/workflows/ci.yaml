@@ -31,6 +31,9 @@ jobs:
         with:
           gpg_private_key: ${{ secrets.GPG_SECRET_KEY }}
           passphrase: ${{ secrets.GPG_PASSPHRASE }}
+      
+      - name: Show GPG keys
+        run: gpg --list-secret-keys --keyid-format LONG
 
       - name: Set up Maven Central Repository
         uses: actions/setup-java@v2
@@ -42,7 +45,7 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: Publish package
-        run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} -Dgpg.keyname=${{ secrets.GPG_KEY_ID }} deploy -DskipTests
+        run: mvn --batch-mode -Dgpg.passphrase=${{ secrets.GPG_PASSPHRASE }} -Dgpg.keyname=6A09E667F3BCC908 deploy -DskipTests
         working-directory: clearblade-cloud-iot
         env:
           MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
